@@ -21,7 +21,7 @@
 <th>ENABLE</th>
 <th>GRADE</th>
 <th>NOTE</th>
-<th>OPERATION</th>
+<th colspan="3">OPERATION</th>
 </tr>
 <!-- for(ShipmentType ob:list){} -->
 <c:forEach items="${list }" var="ob">
@@ -33,13 +33,13 @@
 <td>${ob.shipGrade}</td>
 <td>${ob.shipDesc}</td>
 <td>
-<a href="delete?sid=${ob.shipId}"><img src="../resources/images/delete.png" width="30" height="30"></a>
+<a href="delete?sid=${ob.shipId}"><img src="../resources/images/delete.png" width="30" height="30"/></a>
 </td>
 <td>
-<a href="edit?sid=${ob.shipId}"><img src="../resources/images/edit.png" width="30" height="30"></a>
+<a href="edit?sid=${ob.shipId}"><img src="../resources/images/edit.png" width="30" height="30"/></a>
 </td>
 <td>
-<a href="view?sid=${ob.shipId}"><img src="../resources/images/view.png" width="30" height="30"></a>
+<a href="view?sid=${ob.shipId}"><img src="../resources/images/view.png" width="30" height="30"/></a>
 </td>
 </tr>
 </c:forEach>

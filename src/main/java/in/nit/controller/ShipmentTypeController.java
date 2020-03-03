@@ -110,7 +110,7 @@ public class ShipmentTypeController {
 	}
 	
 //8.
-	@RequestMapping("excel")
+	@RequestMapping("/excel")
 	public ModelAndView showExcel(@RequestParam (value="id",required=false) Integer id) {
 		
 		ModelAndView m=new ModelAndView();

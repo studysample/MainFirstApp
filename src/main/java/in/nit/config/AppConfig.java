@@ -22,7 +22,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import in.nit.model.Document;
+import in.nit.model.OrderMethod;
 import in.nit.model.ShipmentType;
+import in.nit.model.Uom;
+
 
 @Configuration
 @EnableTransactionManagement
@@ -49,7 +52,7 @@ public class AppConfig implements WebMvcConfigurer {
 		LocalSessionFactoryBean s=new LocalSessionFactoryBean();
 		s.setDataSource(ds());
 		s.setHibernateProperties(props());
-		s.setAnnotatedClasses(ShipmentType.class,Document.class);
+		s.setAnnotatedClasses(ShipmentType.class,Document.class,Uom.class,OrderMethod.class);
 		return s;
 		
 	}
