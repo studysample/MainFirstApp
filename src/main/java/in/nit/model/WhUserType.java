@@ -7,27 +7,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="whusertab")
-
+@Table(name="whutab")
 public class WhUserType {
+
 	@Id
-    @GeneratedValue
-    @Column(name="uid")
-     private Integer userId;
-	@Column(name="ucode") 
-     private String userCode;
-	@Column(name="ufor")
-     private String userFor;
-	@Column(name="uemail")
-     private String userEmail;
-	@Column(name="ucontact")
-     private String userContact;
-	@Column(name="uidtype")
-     private String userIdType;
-	@Column(name="uifother")
-     private String userIfOther;
-	@Column(name="uidnuber")
-     private Integer userIdNumber;
+	@GeneratedValue
+	@Column(name="usid")
+	private Integer userId;
+	@Column(name="ustype")
+	private String userType;
+	@Column(name="uscode")
+	private String userCode;
+	@Column(name="usfor")
+	private String userFor;
+	@Column(name="usemail")
+	private String userEmail;
+	@Column(name="uscontact")
+	private String userContact;
+	@Column(name="usidtype")
+	private String userIdType;
+	@Column(name="usifother")
+	private String userIfOther;
+	@Column(name="usidnumber")
+	private String userIdNumber;
 	public WhUserType() {
 		super();
 	}
@@ -36,6 +38,12 @@ public class WhUserType {
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	public String getUserCode() {
 		return userCode;
@@ -73,17 +81,17 @@ public class WhUserType {
 	public void setUserIfOther(String userIfOther) {
 		this.userIfOther = userIfOther;
 	}
-	public Integer getUserIdNumber() {
+	public String getUserIdNumber() {
 		return userIdNumber;
 	}
-	public void setUserIdNumber(Integer userIdNumber) {
+	public void setUserIdNumber(String userIdNumber) {
 		this.userIdNumber = userIdNumber;
 	}
 	@Override
 	public String toString() {
-		return "WhUserType [userId=" + userId + ", userCode=" + userCode + ", userFor=" + userFor + ", userEmail="
-				+ userEmail + ", userContact=" + userContact + ", userIdType=" + userIdType + ", userIfOther="
-				+ userIfOther + ", userIdNumber=" + userIdNumber + "]";
+		return "WhUserType [userId=" + userId + ", userType=" + userType + ", userCode=" + userCode + ", userFor="
+				+ userFor + ", userEmail=" + userEmail + ", userContact=" + userContact + ", userIdType=" + userIdType
+				+ ", userIfOther=" + userIfOther + ", userIdNumber=" + userIdNumber + "]";
 	}
 	
 }

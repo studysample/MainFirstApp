@@ -50,6 +50,12 @@ public class IUomServiceImpl implements IUomService {
 		dao.updateUom(u);
 		
 	}
+
+	@Override
+	public List<Object[]> getUomIdAndUomModel() {
+
+		return dao.getUomIdAndUomModel();
+	}
 }
 
 

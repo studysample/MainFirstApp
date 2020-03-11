@@ -1,5 +1,6 @@
 package in.nit.dao.impl;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,27 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 
 	}
 
+	@Override
+	public List<Object[]> getOrderIdAndCode(String mode) {
+
+		String hql="select omId,omCode "
+				+ "from in.nit.model.OrderMethod"
+				+ " where omMode=?0";
+		
+		@SuppressWarnings({ "unchecked", "deprecation" })
+		List<Object[]> list=(List<Object[]>) ht.find(hql,mode);
+		return list;
+	}
+
+	
 }
+
+
+
+
+
+
+
+
+
+

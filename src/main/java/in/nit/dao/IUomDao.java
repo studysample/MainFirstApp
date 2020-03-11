@@ -15,5 +15,10 @@ public interface IUomDao {
 	public Uom getOneUom(Integer id);
 	
 	public void updateUom(Uom u);
-
+	
+	public  List<Object[]>getUomIdAndUomModel();
+		
+		
+		
+	
 }

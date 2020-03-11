@@ -16,5 +16,5 @@ public interface IUomService {
 	
 	public void updateUom(Uom u);
 	
-	
+	public  List<Object[]>getUomIdAndUomModel();
 }

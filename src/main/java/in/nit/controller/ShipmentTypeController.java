@@ -30,6 +30,7 @@ public class ShipmentTypeController {
 	@Autowired
 	private ServletContext context;
 	
+	@Autowired
 	private ShipmentTypeUtil util;
 //1.
 	@RequestMapping("/register")
@@ -150,7 +151,7 @@ public class ShipmentTypeController {
  //10.
     
     @RequestMapping("/charts")
-    public String showCharts() {
+    public String showCharts( ) {
     	List<Object[]> list=service.getShipmentModeCount();
     	String path=context.getRealPath("/");
     	util.generatePie(path, list);

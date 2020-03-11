@@ -7,8 +7,17 @@
 <title>Opening Uom View Page</title>
 </head>
 <body>
-<h1>WELCOME TO UOM VIEW PAGE</h1>
-<table border="1">
+<%@include file="UserMenu.jsp" %>
+<div class="container">
+<div class="card">
+<div class="card-header bg-dark text-white text-uppercase text-italic">
+<h4>WELCOME TO UOM VIEW PAGE</h4>
+</div>
+
+<div class="card-body">
+<div class="row"></div>
+
+<table class="table table-border bg-dark text-white">
 
 <tr>
 <th>ID</th><td>${ob.uomId}</td>
@@ -26,5 +35,20 @@
 </table>
 <a href="excel?id=${ob.uomId}"><img src="../resources/images/excel.png" width="30" height="30"/></a>
 <a href="pdf?id=${ob.uomId}"><img src="../resources/images/pdf.png" width="30" height="30"/></a>
+</div>
+<c:if test="${!empty message }">
+				<c:choose>
+					<c:when test="${opr eq 'DEL'}">
+						<div class="card-footer bg-danger text-white text-center"><b>${message }</b></div>
+					</c:when>
+					<c:otherwise>
+						<div class="card-footer bg-info text-white text-center"><b>${message }</b></div>
+					
+					</c:otherwise>
+				</c:choose>
+			</c:if>
+
+</div>
+</div>
 </body>
 </html>
