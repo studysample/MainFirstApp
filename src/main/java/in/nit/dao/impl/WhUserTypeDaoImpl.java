@@ -47,4 +47,15 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 		
 	}
 
+
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	@Override
+	public List<Object[]> getWhUserTypeIdAndCode(String userType) {
+		
+		String hql="select userId,userCode from " +WhUserType.class.getName() + " where userType=?0";
+		
+		List<Object[]> list= (List<Object[]>)ht.find(hql, userType);
+		return list;
+	}
+
 }

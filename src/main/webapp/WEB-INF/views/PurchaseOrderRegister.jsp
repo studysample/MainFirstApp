@@ -24,15 +24,23 @@
 </div>
 
 <div class="row">
-<div class="col-4"><label for="pcordShipmentCode">Shipment Code</label></div>
-<div class="col-4"><form:input path="pcordShipmentCode" class="form-control"/></div>
-<div class="col-4"><!-- Error Message --></div>
+<div class="col-4"><label for="shipCode">Shipment Code</label></div>
+<div class="col-4">
+<form:select path="shipOb.shipId" class="form-control">
+<form:option value="">-SELECT-</form:option>
+<form:options items="${shipMap}"/>
+</form:select>
+</div>
 </div>
 
 <div class="row">
-<div class="col-4"><label for="pcordVendor">Vendor</label></div>
-<div class="col-4"><form:input path="pcordVendor" class="form-control"/></div>
-<div class="col-4"><!-- Error Message --></div>
+<div class="col-4"><label for="Vendor">Vendor</label></div>
+<div class="col-4">
+<form:select path="Vendor.userType" class="form-control">
+<form:option value="">-SELECT-</form:option>
+<form:options items="${whMap}"/>
+</form:select>
+</div>
 </div>
 
 

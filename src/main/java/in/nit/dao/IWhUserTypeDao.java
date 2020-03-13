@@ -15,5 +15,7 @@ public Integer saveWhUserType(WhUserType whu);
 	public WhUserType getOneWhUserType(Integer id);
 	
 	public void updateWhUserType(WhUserType whu);
+	
+	public List<Object[]>getWhUserTypeIdAndCode(String userType);
 
 }

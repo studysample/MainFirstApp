@@ -1,6 +1,7 @@
 package in.nit.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import in.nit.model.PurchaseOrder;
 import in.nit.service.IPurchaseOrderService;
+import in.nit.service.IShipmentTypeService;
+import in.nit.service.IWhUserTypeService;
+import in.nit.util.CommonUtil;
 
 @Controller
 @RequestMapping("/purchase")
@@ -20,11 +24,30 @@ public class PurchaseOrderController {
 	@Autowired
 	private IPurchaseOrderService service;
 	
+	@Autowired
+	private IShipmentTypeService shipmentTypeService;
+	
+	@Autowired
+	private IWhUserTypeService whUserTypeService;
+	
+	//0.
+	
+	private void commonUi(Model model) {
+		
+		List<Object[]> shipList=shipmentTypeService.getShipmetIdAndCode();
+		Map<Integer,String> shipMap=CommonUtil.Convert(shipList);
+		model.addAttribute("shipMap", shipMap);
+		
+		List<Object[]> whList=whUserTypeService.getWhUserTypeIdAndCode("Vendor");
+		Map<Integer,String> whMap=CommonUtil.Convert(whList);
+		model.addAttribute("whMap", whMap);
+	}
+	
 	//1.
 			@RequestMapping("/register")
 			public String showRegisterPage(Model model) {
 				model.addAttribute("purchaseOrder", new PurchaseOrder());
-				
+				commonUi(model);
 				return "PurchaseOrderRegister";
 			}	
 			
@@ -36,7 +59,7 @@ public class PurchaseOrderController {
 				String message= "PurchaseOrder'" +id+"'saved";
 				model.addAttribute("message", message);
 				model.addAttribute("purchaseOrder",new PurchaseOrder());
-				
+				commonUi(model);
 				return "PurchaseOrderRegister";
 				
 			}
@@ -71,7 +94,7 @@ public class PurchaseOrderController {
 				
 				model.addAttribute("purchaseOrder", pcob);
 				
-				
+				commonUi(model);
 				
 				return "PurchaseOrderEdit";
 					
